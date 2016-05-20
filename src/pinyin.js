@@ -45,8 +45,8 @@ exports.pinyinWithOutYin = function (word) {
 
 exports.isChineseWord = function (word, modle) {
     if (!modle) {
-        //modle为false是非严格中文！
-        modle = false;
+        //modle为false是非严格中文！默认是严格中文
+        modle = true;
     }
     var str = '';
     var isChinese = false;
