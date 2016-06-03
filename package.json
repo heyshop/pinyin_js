@@ -1,0 +1,26 @@
+{
+  "name": "pinyin_js",
+  "version": "1.0.0",
+  "description": "you can get the chinese pinyin using this module.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "lodash": "^4.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liu11hao11/pinyin_js.git"
+  },
+  "author": "alexliu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liu11hao11/pinyin_js/issues"
+  },
+  "homepage": "https://github.com/liu11hao11/pinyin_js#readme"
+}
