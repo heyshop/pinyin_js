@@ -43,7 +43,7 @@ exports.pinyinWithOutYin = function (word, splitChar) {
         }
         else {
             // not Chinese & just number & aplha
-            if (/^[a-zA-Z0-9]+$/.test(word.chartAt(i))){
+            if (/^[a-zA-Z0-9]+$/.test(word.charAt(i))){
                 engWord += word.charAt(i)
             }
         }
