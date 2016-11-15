@@ -19,11 +19,10 @@ exports.pinyin = function (word) {
             str += word.charAt(i);
         }
     }
-    console.log(str);
     return str;
 }
 //无声调的拼音
-exports.pinyinWithOutYin = function (word) {
+exports.pinyinWithOutYin = function (word, splitChar) {
     var str = '';
     var s;
     for (var i = 0; i < word.length; i++) {
@@ -33,13 +32,12 @@ exports.pinyinWithOutYin = function (word) {
                 str += hzpyWithOutYin.charAt(hzpyWithOutYin.indexOf(word.charAt(i)) + s);
                 s++;
             }
-            str += " ";
+            str += splitChar || " ";
         }
         else {
             str += word.charAt(i);
         }
     }
-    console.log(str);
     return str;
 }
 
