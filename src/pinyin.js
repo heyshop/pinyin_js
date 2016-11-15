@@ -25,18 +25,30 @@ exports.pinyin = function (word) {
 exports.pinyinWithOutYin = function (word, splitChar) {
     var pinyinArray = [];
     var s;
+    var engWord = '';
     for (var i = 0; i < word.length; i++) {
         if (hzpyWithOutYin.indexOf(word.charAt(i)) != -1 && word.charCodeAt(i) > 200) {
+            if(engWord.length > 0){
+                pinyinArray.push(engWord);
+                engWord = '';
+            }
+            // is Chinese
             s = 1;
+            var shortWord = '';
             while (hzpyWithOutYin.charAt(hzpyWithOutYin.indexOf(word.charAt(i)) + s) != ",") {
-                pinyinArray.push(hzpyWithOutYin.charAt(hzpyWithOutYin.indexOf(word.charAt(i)) + s));
+                shortWord += hzpyWithOutYin.charAt(hzpyWithOutYin.indexOf(word.charAt(i)) + s);
                 s++;
             }
+            pinyinArray.push(shortWord);
         }
         else {
-            pinyinArray.push(word.charAt(i));
+            // not Chinese & just number & aplha
+            if (/^[a-zA-Z0-9]+$/.test(word.chartAt(i))){
+                engWord += word.charAt(i)
+            }
         }
     }
+    if(engWord.length > 0){ pinyinArray.push(engWord) }
     return pinyinArray.join(splitChar || '');
 }
 
