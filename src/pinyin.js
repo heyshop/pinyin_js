@@ -23,22 +23,21 @@ exports.pinyin = function (word) {
 }
 //无声调的拼音
 exports.pinyinWithOutYin = function (word, splitChar) {
-    var str = '';
+    var pinyinArray = [];
     var s;
     for (var i = 0; i < word.length; i++) {
         if (hzpyWithOutYin.indexOf(word.charAt(i)) != -1 && word.charCodeAt(i) > 200) {
             s = 1;
             while (hzpyWithOutYin.charAt(hzpyWithOutYin.indexOf(word.charAt(i)) + s) != ",") {
-                str += hzpyWithOutYin.charAt(hzpyWithOutYin.indexOf(word.charAt(i)) + s);
+                pinyinArray.push(hzpyWithOutYin.charAt(hzpyWithOutYin.indexOf(word.charAt(i)) + s));
                 s++;
             }
-            str += splitChar || " ";
         }
         else {
-            str += word.charAt(i);
+            pinyinArray.push(word.charAt(i));
         }
     }
-    return str;
+    return pinyinArray.join(splitChar || '');
 }
 
 exports.isChineseWord = function (word, modle) {
